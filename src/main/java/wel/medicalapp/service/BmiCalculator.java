@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import wel.medicalapp.model.Bmi;
 import wel.medicalapp.repository.BmiRepository;
 
+import java.util.List;
+
 @Service
 public class BmiCalculator {
 
@@ -27,4 +29,11 @@ public class BmiCalculator {
 
         return String.valueOf(bmi);
     }
+
+    public List<Bmi> getAllResults(){
+
+        return bmiRepository.findAll();
+    }
+
+
 }
