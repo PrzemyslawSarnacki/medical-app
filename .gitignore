@@ -10,6 +10,11 @@ build/
 .classpath
 .factorypath
 .project
+config/
+gradle/
+gradle/wrapper
+node_modules/
+
 .settings
 .springBeans
 .sts4-cache
