@@ -52,7 +52,7 @@ public class BodyFatCalculatorView extends VerticalLayout{
 
         });
         VerticalLayout layout = new VerticalLayout();
-        layout.add(infoLabel, neck, height, label,waist, calculate, result, myResultsButton);
+        layout.add(infoLabel,gender, neck, height, label,waist, calculate, result, myResultsButton);
         layout.setHorizontalComponentAlignment(FlexComponent.Alignment.CENTER);
         layout.setAlignItems(FlexComponent.Alignment.CENTER);
         add(layout);

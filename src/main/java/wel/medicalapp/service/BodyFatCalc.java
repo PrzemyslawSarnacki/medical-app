@@ -45,7 +45,7 @@ public class BodyFatCalc {
         }
 
 
-        BodyFat entity = new BodyFat(gender, height, waist, neck);
+        BodyFat entity = new BodyFat(gender, height, waist, neck, result);
         bodyFatRepository.save(entity);
 
         return String.valueOf(result);

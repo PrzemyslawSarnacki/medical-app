@@ -41,8 +41,8 @@ public class HelloWorldController {
 
     @GetMapping("/bodyfat")
     public String calculateBodyFat(@RequestParam String gender, @RequestParam String waist, @RequestParam String neck, @RequestParam String height) {
-        String pressure = bodyFatCalc.calculate(gender, waist, neck, height);
-        return "Your BodyFat level is : " + pressure + "%";
+        String bodyfat = bodyFatCalc.calculate(gender, waist, neck, height);
+        return "Your BodyFat level is : " + bodyfat + "%";
     }
 
 }

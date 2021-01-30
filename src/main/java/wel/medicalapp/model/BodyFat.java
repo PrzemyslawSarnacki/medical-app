@@ -11,11 +11,18 @@ public class BodyFat {
     @GeneratedValue
     private Long id;
     private String gender;
-
     private String height;
-
     private String waist;
     private String neck;
+    private Double bodyfat;
+
+    public Double getBodyfat() {
+        return bodyfat;
+    }
+
+    public void setBodyfat(Double bodyfat) {
+        this.bodyfat = bodyfat;
+    }
 
     public Long getId() {
         return id;
@@ -60,10 +67,11 @@ public class BodyFat {
     public BodyFat() {
     }
 
-    public BodyFat(String gender, String height, String waist, String neck) {
+    public BodyFat(String gender, String height, String waist, String neck, Double bodyfat) {
         this.gender = gender;
         this.height = height;
         this.waist = waist;
         this.neck = neck;
+        this.bodyfat = bodyfat;
     }
 }

@@ -2,12 +2,14 @@ package wel.medicalapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import wel.medicalapp.model.BodyFat;
 import wel.medicalapp.model.Pressure;
 import wel.medicalapp.repository.PressureRepository;
 
+import java.util.List;
+
 @Service
 public class PressureCalc {
-
 
     private PressureRepository pressureRepository;
 
@@ -37,6 +39,11 @@ public class PressureCalc {
         Pressure entity = new Pressure(systolic, diastolic, pressure);
         pressureRepository.save(entity);
         return pressure;
+    }
+
+    public List<Pressure> getAllResults() {
+
+        return pressureRepository.findAll();
     }
 
 }
