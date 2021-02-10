@@ -2,6 +2,13 @@ plugins {
     id 'org.springframework.boot' version '2.4.1'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
+    id 'com.devsoap.vaadin-flow' version '1.3.1'
+    id 'com.vaadin' version '0.14.3.7'
+
+}
+
+ext {
+    set('vaadinVersion', "14.4.5")
 }
 
 group = 'wel'
@@ -10,17 +17,34 @@ sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
 }
+
+defaultTasks("vaadinBuildFrontend")
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.vaadin:vaadin-spring-boot-starter:14.4.5'
+
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
+    }
+}
+
 test {
     useJUnitPlatform()
+}
+
+vaadin {
+    compatibilityMode=true
+    productionMode = true
 }

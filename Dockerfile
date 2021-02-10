@@ -1,7 +1,7 @@
 FROM openjdk:11
 WORKDIR /
-ADD target/my-starter-project-1.0-SNAPSHOT.jar app.jar
+ADD build/libs/medical-app-0.0.1-SNAPSHOT.jar app.jar
 RUN useradd -m myuser
 USER myuser
-EXPOSE 8090
-CMD java -jar -Dspring.profiles.active=prod app.jar
+EXPOSE 8080
+CMD java -Djava.security.egd=file:/dev/./urandom -jar app.jar -Dspring.profiles.active=docker
